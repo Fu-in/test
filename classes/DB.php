@@ -3,7 +3,7 @@
 class DB
 {
     private static $_instance = null;
-    private $_con, $_query, $_results, $_count;
+    private $_con, $_query, $_results;
 
     private function __construct()
     {
