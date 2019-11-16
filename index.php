@@ -1,11 +1,15 @@
  <?php
 require_once 'core/init.php';
 
+$db = DB::getInstance()->insert('users', [
+    'username' => 'teo',
+    'password' => 'teopass',
+    'salt' => 'salt',
+]);
+
 if ($_POST['submit']) {
     $username = $_POST['username'];
 
-    $db = DB::getInstance()->query("SELECT * FROM users WHERE username =?", [$username]);
-    dnd($db);
 }
 
 ?>
