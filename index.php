@@ -13,7 +13,7 @@ if ($_POST['submit']) {
 }
 
 ?>
-
+<a href="register.php">Register</a>
  <form action="index.php" method="post">
      <div align="center">
          <input type="text" name="username">
