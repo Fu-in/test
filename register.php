@@ -1,3 +1,39 @@
+<?php
+require_once 'core/init.php';
+
+if (Input::exists()) {
+    $validate = new Validate();
+    $validation = $validate->check($_POST, [
+        'username' => [
+            'required' => true,
+            'min' => 3,
+            'max' => 20,
+            'unique' => 'users',
+        ],
+        'password' => [
+            'required' => true,
+            'min' => 6,
+        ],
+        'password_again' => [
+            'required' => true,
+            'matches' => 'password',
+        ],
+        'name' => [
+            'required' => true,
+            'min' => 3,
+            'max' => 20,
+        ],
+    ]);
+
+    if ($validation->passed()) {
+        echo 'Passed';
+        $_POST['username'] = '';
+        $_POST['name'] = '';
+    } else {
+        dnd($validation->errors());
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,30 +48,42 @@
 
     <body>
         <div class="container">
-            <h2>Horizontal form</h2>
-            <form class="form-horizontal" action="/action_page.php">
+            <h2 align="center">Register</h2>
+            <form method="post" action="" class="form-horizontal">
+                <input type="password" style="display:none">
+                <input type="text" id="username" style="display:none">
+
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Email:</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    <label class="control-label col-sm-2" for="username">Username:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                            autocomplete="false" value="<?=Input::get('username');?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="pwd">Password:</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                    <label class="control-label col-sm-2" for="password">Password:</label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="remember"> Remember me</label>
-                        </div>
+                    <label class="control-label col-sm-2" for="password_repeat">Password repeat:</label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="password_again" id="password_again"
+                            placeholder="Password repeat">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                    <label class="control-label col-sm-2" for="name">Name:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                            value="<?=Input::get('name');?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-3">
+                        <button type="submit" class="btn btn-sm btn-block btn-primary">Submit</button>
                     </div>
                 </div>
             </form>
