@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'helpers/helper.php';
 $GLOBALS['config'] = [
     'mysql' => [
@@ -6,6 +7,10 @@ $GLOBALS['config'] = [
         'dbname' => 'php_app',
         'username' => 'root',
         'password' => 'Parolamea',
+    ],
+    'sessions' => [
+        'session_name' => 'user',
+        'token_name' => 'token',
     ],
 ];
 

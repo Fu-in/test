@@ -36,6 +36,9 @@ if (Input::exists()) {
                 'salt' => $salt,
                 'joined' => date('Y-m-d H:i:s'),
             ]);
+
+            Sessions::flash('home', 'You have registered and can now log in!');
+            Redirect::to('index.php');
         } catch (Exception $th) {
             die($th->getMessage());
         }

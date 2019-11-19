@@ -1,22 +1,8 @@
- <?php
+<?php
 require_once 'core/init.php';
-
-$db = DB::getInstance()->insert('users', [
-    'username' => 'teo',
-    'password' => 'teopass',
-    'salt' => 'salt',
-]);
-
-if ($_POST['submit']) {
-    $username = $_POST['username'];
-
+if (Sessions::exists('home')) {
+    echo '<p>' . Sessions::flash('home') . '</p>';
 }
-
 ?>
-
- <form action="index.php" method="post">
-     <div align="center">
-         <input type="text" name="username">
-         <input type="submit" name="submit">
-     </div>
- </form>
+<a href="register.php">Register</a>
+<a href="login.php">Login</a>
