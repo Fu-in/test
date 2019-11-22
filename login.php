@@ -45,7 +45,7 @@ if (Input::exists()) {
         <div class="container">
 
 
-            <form action="login.php" method="post" class="form-horizontal" autocomplete="off">
+            <form action="" method="post" class="form-horizontal" autocomplete="off">
                 <h3 class="text-center">Login</h3>
                 <div class="form-group row">
                     <div class="col-sm-4">
@@ -61,12 +61,22 @@ if (Input::exists()) {
                             name="password" />
                     </div>
                 </div>
-
-
-                <div class="col-sm-4">
-
-                    <input type="submit" class="btn btn-block btn-primary btn-sm" value="Login">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                    </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="submit" class="btn btn-block btn-primary btn-sm" value="Login">
+                    </div>
+                </div>
+
+
+
         </div>
 
         </form>

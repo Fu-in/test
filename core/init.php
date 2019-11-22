@@ -8,7 +8,11 @@ $GLOBALS['config'] = [
         'username' => 'root',
         'password' => 'Parolamea',
     ],
-    'sessions' => [
+    'remember' => [
+        'cookie_name' => 'hash',
+        'cookie_expiry' => 604800,
+    ],
+    'session' => [
         'session_name' => 'user',
         'token_name' => 'token',
     ],
