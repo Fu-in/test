@@ -6,7 +6,7 @@ $GLOBALS['config'] = [
         'host' => '127.0.0.1',
         'dbname' => 'php_app',
         'username' => 'root',
-        'password' => 'Parolamea',
+        'password' => '',
     ],
     'remember' => [
         'cookie_name' => 'hash',
