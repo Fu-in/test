@@ -57,7 +57,7 @@ if (Input::exists()) {
                     <label class="control-label col-sm-2" for="username">Username:</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" name="username" id="username" placeholder="Username"
-                            autocomplete="false" value="<?=Input::get('username');?>">
+                            autocomplete="false" value="<?=@Input::get('username');?>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -78,7 +78,7 @@ if (Input::exists()) {
                     <label class="control-label col-sm-2" for="name">Name:</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" name="name" id="name" placeholder="Name"
-                            value="<?=Input::get('name');?>">
+                            value="<?=@Input::get('name');?>">
                     </div>
                 </div>
                 <div class="form-group">
