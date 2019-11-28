@@ -36,10 +36,65 @@ class DB
             }
         }
         if ($this->_query->execute()) {
-            return $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+            $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+            $this->_count = $this->_query->rowCount();
+        }
+        return $this;
+    }
 
+    public function action($action, $table, $where = [])
+    {
+        if (count($where) === 3) {
+            $operators = ['<', '>', '<=', '>=', '='];
+
+            $field = $where[0];
+            $operator = $where[1];
+            $value = $where[2];
+
+            if (in_array($operator, $operators)) {
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+
+                if ($this->query($sql, [$value])) {
+                    return $this;
+                }
+            }
+
+        }
+    }
+
+    public function get($table, $where)
+    {
+        return $this->action("SELECT *", $table, $where);
+    }
+    public function delete($table, $where)
+    {
+        return $this->action("DELETE", $table, $where);
+    }
+
+    public function insert($table, $fields = [])
+    {
+
+        $key = array_keys($fields);
+        $col = implode(', ', $key);
+
+        $value = '?';
+        $x = 1;
+        foreach ($fields as $field) {
+            if ($x < count($fields)) {
+                $value .= ', ?';
+                $x++;
+            }
+        }
+
+        $sql = "INSERT INTO users ($col) VALUES ($value)";
+        if ($this->query($sql, $fields)) {
+            return true;
         }
 
     }
 
+    public function count()
+    {
+        return $this->_count;
+    }
 }
