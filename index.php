@@ -1,11 +1,6 @@
  <?php
 require_once 'core/init.php';
-$db = DB::getInstance()->insert('users', [
-
-    'username' => 'teo',
-    'password' => 'teopass',
-    'salt' => 'salt',
-]);
+$db = DB::getInstance();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
 
