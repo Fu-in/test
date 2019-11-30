@@ -1,6 +1,13 @@
  <?php
 require_once 'core/init.php';
+<<<<<<< Updated upstream
 $db = DB::getInstance();
+=======
+$db = DB::getInstance()->update('users', 3, [
+    'password' => 'parolateo',
+    'salt' => 'salt1',
+]);
+>>>>>>> Stashed changes
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
 
@@ -21,6 +28,7 @@ if (isset($_POST['submit'])) {
      <body>
          <form action="index.php" method="post">
              <div align="center">
+             <a href="register.php">Register</a>
                  <input type="text" name="username">
                  <input type="submit" name="submit">
              </div>
