@@ -1,8 +1,6 @@
  <?php
 require_once 'core/init.php';
-$db = DB::getInstance()->update('users', 3, [
-    'password' => 'parolateo',
-]);
+$db = DB::getInstance();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
 
