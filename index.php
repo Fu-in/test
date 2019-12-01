@@ -21,7 +21,6 @@ if (isset($_POST['submit'])) {
      <body>
          <form action="index.php" method="post">
              <div align="center">
-                 <a href="register.php">Register</a>
                  <input type="text" name="username">
                  <input type="submit" name="submit">
              </div>
