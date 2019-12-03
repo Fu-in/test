@@ -2,7 +2,31 @@
 require_once 'core/init.php';
 
 if (Input::exists()) {
+    $validate = new Validate();
+    $validation = $validate->check($_POST, [
+        'username' => [
+            'required' => true,
+            'min' => 3,
+            'max' => 6,
+            'unique' => 'users',
+        ],
+        'psw' => [
+            'required' => true,
+            'min' => 6,
+        ],
+        'psw-repeat' => [
+            'required' => true,
+            'matches' => 'psw',
+        ],
+    ]);
 
+    if ($validation->passed()) {
+        echo 'Success';
+    } else {
+        foreach ($validation->errors() as $error) {
+            echo $error . '<br>';
+        }
+    }
 }
 
 ?>
