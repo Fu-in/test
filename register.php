@@ -2,7 +2,7 @@
 require_once 'core/init.php';
 
 if (Input::exists()) {
-    echo Input::get('username');
+
 }
 
 ?>
@@ -27,13 +27,13 @@ if (Input::exists()) {
                 <hr>
 
                 <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" autocomplete="off" required>
+                <input type="text" placeholder="Enter Username" name="username">
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" autocomplete="new-password" required>
+                <input type="password" placeholder="Enter Password" name="psw">
 
                 <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat">
                 <hr>
                 <button type="submit" class="registerbtn">Register</button>
             </div>

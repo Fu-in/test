@@ -5,7 +5,7 @@
 /* Add padding to containers */
 .container {
     max-width: 500px;
-    margin: 60px auto;
+    margin: auto;
     padding: 16px;
 }
 
